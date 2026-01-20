@@ -191,7 +191,7 @@
                 </ul>
             </div>
             <!-- Mobile menu -->
-            <ul id="mobile-menu" class="hidden flex-col space-y-4 mt-6 pb-4 md:hidden text-center">
+            <ul id="mobile-menu" class="hidden flex-col space-y-4 mt-6 pb-4 md:hidden text-center bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg">
                 <li><a href="#home" class="block py-2 hover:text-terracotta">Home</a></li>
                 <li><a href="#spazi" class="block py-2 hover:text-terracotta">Gli Spazi</a></li>
                 <li><a href="#esperienza" class="block py-2 hover:text-terracotta">L'Esperienza</a></li>
@@ -656,6 +656,10 @@
         menuToggle.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
             mobileMenu.classList.toggle('flex');
+            // Add background to navbar when menu is open
+            if (!mobileMenu.classList.contains('hidden')) {
+                navbar.classList.add('glass', 'shadow-lg');
+            }
         });
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', () => {
