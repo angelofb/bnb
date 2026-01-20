@@ -3,10 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casa del Travertino | B&B Ascoli Piceno Centro Storico</title>
-    <meta name="description" content="Dormi tra le pietre antiche di Ascoli Piceno. Un nido intimo nel cuore della città delle cento torri, a due passi da Piazza del Popolo.">
+
+    <!-- SEO Base -->
+    <title>Casa del Travertino | B&B Centro Storico Ascoli Piceno</title>
+    <meta name="description" content="B&B nel cuore di Ascoli Piceno, a 2 minuti da Piazza del Popolo. 3 posti letto, Wi-Fi, aria condizionata. Prenota il tuo soggiorno nella città delle cento torri.">
+    <meta name="keywords" content="B&B Ascoli Piceno, bed and breakfast centro storico, alloggio Ascoli Piceno, dormire Ascoli, Piazza del Popolo, Marche, vacanze Ascoli">
+    <meta name="author" content="Casa del Travertino">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tuodominio.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tuodominio.com/">
+    <meta property="og:title" content="Casa del Travertino | B&B Centro Storico Ascoli Piceno">
+    <meta property="og:description" content="Un rifugio intimo tra le pietre millenarie di Ascoli Piceno. A due passi da Piazza del Popolo, una delle piazze più belle d'Italia.">
+    <meta property="og:image" content="https://tuodominio.com/images/og-image.jpg">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:site_name" content="Casa del Travertino">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://tuodominio.com/">
+    <meta name="twitter:title" content="Casa del Travertino | B&B Ascoli Piceno">
+    <meta name="twitter:description" content="B&B nel cuore di Ascoli Piceno, a 2 minuti da Piazza del Popolo. Prenota il tuo soggiorno.">
+    <meta name="twitter:image" content="https://tuodominio.com/images/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#C4703D">
+    <meta name="msapplication-TileColor" content="#C4703D">
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="IT-AP">
+    <meta name="geo.placename" content="Ascoli Piceno">
+    <meta name="geo.position" content="42.8539;13.5749">
+    <meta name="ICBM" content="42.8539, 13.5749">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LodgingBusiness",
+        "name": "Casa del Travertino",
+        "description": "Bed and Breakfast nel centro storico di Ascoli Piceno, a due passi da Piazza del Popolo",
+        "url": "https://tuodominio.com",
+        "telephone": "+39 333 123 4567",
+        "email": "info@casadeltravertino.it",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Centro Storico",
+            "addressLocality": "Ascoli Piceno",
+            "postalCode": "63100",
+            "addressRegion": "AP",
+            "addressCountry": "IT"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 42.8539,
+            "longitude": 13.5749
+        },
+        "image": "https://tuodominio.com/images/og-image.jpg",
+        "priceRange": "€€",
+        "amenityFeature": [
+            {"@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "Aria Condizionata", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "Cucina", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "Smart TV", "value": true}
+        ],
+        "numberOfRooms": 1,
+        "petsAllowed": false,
+        "checkinTime": "15:00",
+        "checkoutTime": "10:00",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "reviewCount": "1"
+        }
+    }
+    </script>
+
+    <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.google.com">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -84,16 +166,19 @@
         }
     </style>
 </head>
-<body class="bg-travertino text-notte font-sans">
+<body class="bg-travertino text-notte font-sans" itemscope itemtype="https://schema.org/WebPage">
+    <!-- Skip to content for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-terracotta text-white px-4 py-2 rounded">Vai al contenuto</a>
+
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+    <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar" aria-label="Navigazione principale">
         <div class="max-w-6xl mx-auto px-6 py-5">
             <div class="flex justify-between items-center">
                 <a href="#home" class="font-serif text-2xl font-semibold tracking-wide">
                     <span class="text-terracotta">Casa</span> del Travertino
                 </a>
-                <button id="menu-toggle" class="md:hidden p-2 text-notte">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button id="menu-toggle" class="md:hidden p-2 text-notte" aria-label="Apri menu di navigazione" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
@@ -116,10 +201,13 @@
         </div>
     </nav>
 
+    <!-- Main Content -->
+    <main id="main-content">
+
     <!-- Hero Section -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center">
+    <section id="home" class="relative min-h-screen flex items-center justify-center" aria-label="Introduzione">
         <div class="absolute inset-0 z-0">
-            <img src="https://placekitten.com/1920/1080" alt="Vista del B&B" class="w-full h-full object-cover">
+            <img src="https://placekitten.com/1920/1080" alt="Vista panoramica del centro storico di Ascoli Piceno con Piazza del Popolo" class="w-full h-full object-cover" loading="eager">
             <div class="absolute inset-0 bg-gradient-to-b from-notte/60 via-notte/40 to-notte/70"></div>
         </div>
         <div class="relative z-10 text-center text-white px-6 max-w-4xl">
@@ -173,7 +261,7 @@
             <div class="grid md:grid-cols-12 gap-6 mb-12">
                 <div class="md:col-span-7 fade-in">
                     <div class="relative overflow-hidden rounded-2xl group">
-                        <img src="https://placekitten.com/800/600" alt="Camera matrimoniale" class="w-full h-[400px] md:h-[500px] object-cover transition-transform duration-700 group-hover:scale-105">
+                        <img src="https://placekitten.com/800/600" alt="Camera matrimoniale luminosa del B&B Casa del Travertino ad Ascoli Piceno" class="w-full h-[400px] md:h-[500px] object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-notte/60 to-transparent"></div>
                         <div class="absolute bottom-0 left-0 p-8 text-white">
                             <h3 class="font-serif text-2xl md:text-3xl mb-2">La Camera</h3>
@@ -183,7 +271,7 @@
                 </div>
                 <div class="md:col-span-5 space-y-6">
                     <div class="fade-in relative overflow-hidden rounded-2xl group">
-                        <img src="https://placekitten.com/600/350" alt="Soggiorno con divano letto" class="w-full h-[235px] object-cover transition-transform duration-700 group-hover:scale-105">
+                        <img src="https://placekitten.com/600/350" alt="Soggiorno accogliente con divano letto nel B&B di Ascoli Piceno" class="w-full h-[235px] object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-notte/60 to-transparent"></div>
                         <div class="absolute bottom-0 left-0 p-6 text-white">
                             <h3 class="font-serif text-xl mb-1">Il Soggiorno</h3>
@@ -191,7 +279,7 @@
                         </div>
                     </div>
                     <div class="fade-in relative overflow-hidden rounded-2xl group">
-                        <img src="https://placekitten.com/600/351" alt="Angolo cucina" class="w-full h-[235px] object-cover transition-transform duration-700 group-hover:scale-105">
+                        <img src="https://placekitten.com/600/351" alt="Angolo cucina attrezzato per colazioni e pasti leggeri" class="w-full h-[235px] object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-notte/60 to-transparent"></div>
                         <div class="absolute bottom-0 left-0 p-6 text-white">
                             <h3 class="font-serif text-xl mb-1">L'Angolo Cucina</h3>
@@ -309,7 +397,7 @@
                     </div>
                 </div>
                 <div class="fade-in">
-                    <img src="https://placekitten.com/700/900" alt="Dettagli dell'appartamento" class="w-full h-[500px] object-cover rounded-2xl shadow-xl">
+                    <img src="https://placekitten.com/700/900" alt="Dettagli dell'arredamento curato del B&B Casa del Travertino" class="w-full h-[500px] object-cover rounded-2xl shadow-xl" loading="lazy">
                 </div>
             </div>
 
@@ -513,8 +601,10 @@
         </div>
     </section>
 
+    </main>
+
     <!-- Footer -->
-    <footer class="bg-notte text-white py-16 px-6">
+    <footer class="bg-notte text-white py-16 px-6" role="contentinfo">
         <div class="max-w-6xl mx-auto">
             <div class="grid md:grid-cols-4 gap-12 mb-12">
                 <div class="md:col-span-2">
