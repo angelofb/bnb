@@ -12,6 +12,8 @@ Sito web statico per un Bed & Breakfast situato nel centro storico di Ascoli Pic
 
 ## Pubblicazione su GitHub Pages
 
+Il progetto include una GitHub Action che pubblica automaticamente il sito ad ogni push.
+
 ### 1. Crea un repository su GitHub
 
 1. Vai su [github.com](https://github.com) e accedi al tuo account
@@ -32,9 +34,8 @@ git push -u origin main
 
 1. Vai nelle impostazioni del repository (Settings)
 2. Nella sezione "Pages" (menu laterale)
-3. In "Source" seleziona "Deploy from a branch"
-4. Seleziona il branch `main` e la cartella `/ (root)`
-5. Clicca "Save"
+3. In "Source" seleziona **"GitHub Actions"**
+4. Il deploy partira automaticamente ad ogni push
 
 Il sito sara disponibile in pochi minuti all'indirizzo:
 `https://TUO-USERNAME.github.io/bnb-ascoli-piceno/`
@@ -105,9 +106,12 @@ La mappa punta a Piazza del Popolo. Per cambiarla:
 
 ```
 BnB/
-├── index.html      # Pagina principale
-├── README.md       # Questo file
-└── images/         # Cartella per le immagini (da creare)
+├── .github/
+│   └── workflows/
+│       └── deploy.yml   # GitHub Action per il deploy automatico
+├── index.html           # Pagina principale
+├── README.md            # Questo file
+└── images/              # Cartella per le immagini (da creare)
 ```
 
 ## Tecnologie usate
@@ -116,6 +120,7 @@ BnB/
 - **Tailwind CSS** (CDN) - Stili e layout
 - **Formspree** - Gestione form contatti
 - **Google Maps Embed** - Mappa interattiva
+- **GitHub Actions** - Deploy automatico
 
 ## Supporto
 
