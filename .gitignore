@@ -6,6 +6,9 @@
 # dotenv files
 .env
 
+# Build output
+dist/
+
 # User-specific files
 *.rsuser
 *.suo

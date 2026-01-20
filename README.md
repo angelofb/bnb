@@ -1,127 +1,112 @@
-# B&B Centro Storico Ascoli Piceno
+# Casa del Travertino
 
-Sito web statico per un Bed & Breakfast situato nel centro storico di Ascoli Piceno.
+Sito web per il B&B "Casa del Travertino" nel centro storico di Ascoli Piceno.
 
 ## Caratteristiche
 
-- Design responsive (mobile-first)
-- Tailwind CSS via CDN
+- Design moderno e responsive
+- Tailwind CSS ottimizzato (solo classi usate)
+- Animazioni on-scroll
 - Form contatti con Formspree
 - Mappa Google Maps integrata
-- Nessun backend necessario
+- Build automatico con ottimizzazione
 
-## Pubblicazione su GitHub Pages
+## Sviluppo locale
 
-Il progetto include una GitHub Action che pubblica automaticamente il sito ad ogni push.
+### Requisiti
 
-### 1. Crea un repository su GitHub
+- Node.js 18+
 
-1. Vai su [github.com](https://github.com) e accedi al tuo account
-2. Clicca su "New repository"
-3. Nome suggerito: `bnb-ascoli-piceno`
-4. Seleziona "Public"
-5. Clicca "Create repository"
-
-### 2. Carica i file
+### Setup
 
 ```bash
-git remote add origin https://github.com/TUO-USERNAME/bnb-ascoli-piceno.git
-git branch -M main
-git push -u origin main
+npm install
 ```
 
-### 3. Attiva GitHub Pages
+### Comandi
 
-1. Vai nelle impostazioni del repository (Settings)
-2. Nella sezione "Pages" (menu laterale)
-3. In "Source" seleziona **"GitHub Actions"**
-4. Il deploy partira automaticamente ad ogni push
+```bash
+# Sviluppo - serve i file sorgente
+npm run dev
 
-Il sito sara disponibile in pochi minuti all'indirizzo:
-`https://TUO-USERNAME.github.io/bnb-ascoli-piceno/`
+# Build - genera versione ottimizzata in /dist
+npm run build
 
-## Configurazione Formspree (Form Contatti)
-
-Il form di contatto usa [Formspree](https://formspree.io) per inviare email senza backend.
-
-### Setup:
-
-1. Vai su [formspree.io](https://formspree.io) e crea un account gratuito
-2. Clicca "New Form"
-3. Inserisci l'email dove vuoi ricevere i messaggi
-4. Copia l'ID del form (es: `xyzabcde`)
-5. Nel file `index.html`, sostituisci `YOUR_FORM_ID` con il tuo ID:
-
-```html
-<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+# Preview - serve la versione ottimizzata
+npm run preview
 ```
 
-diventa:
-
-```html
-<form action="https://formspree.io/f/xyzabcde" method="POST">
-```
-
-Il piano gratuito di Formspree include 50 invii/mese.
-
-## Personalizzazioni da fare
-
-### Informazioni di contatto
-
-Nel file `index.html`, cerca e sostituisci:
-
-- `info@bnbascolipiceno.it` - con la tua email reale
-- `+39 333 123 4567` - con il tuo numero di telefono
-- `[Inserire Codice Identificativo Regionale]` - con il tuo CIR
-
-### Link piattaforme
-
-Cerca i link a Airbnb e Booking.com e sostituisci `href="#"` con i tuoi link reali.
-
-### Immagini
-
-Le immagini attuali sono placeholder (gatti!). Sostituiscile con foto reali del tuo B&B:
-
-1. Crea una cartella `images/` nel progetto
-2. Carica le tue foto
-3. Sostituisci i link `https://placekitten.com/...` con `images/tua-foto.jpg`
-
-Dimensioni consigliate:
-- Hero: 1920x1080px
-- Camere: 800x600px
-- Galleria: 400x300px
-- Attrazioni: 400x250px
-
-### Mappa
-
-La mappa punta a Piazza del Popolo. Per cambiarla:
-
-1. Vai su [Google Maps](https://maps.google.com)
-2. Cerca l'indirizzo esatto del B&B
-3. Clicca "Condividi" > "Incorpora mappa"
-4. Copia il codice iframe
-5. Sostituisci l'iframe esistente nel file HTML
-
-## Struttura del progetto
+### Struttura del progetto
 
 ```
 BnB/
+├── src/
+│   └── index.html        # Sorgente HTML
+├── dist/                  # Output build (generato)
 ├── .github/
 │   └── workflows/
-│       └── deploy.yml   # GitHub Action per il deploy automatico
-├── index.html           # Pagina principale
-├── README.md            # Questo file
-└── images/              # Cartella per le immagini (da creare)
+│       └── deploy.yml    # CI/CD GitHub Pages
+├── build.js              # Script di ottimizzazione
+├── tailwind.config.js    # Configurazione Tailwind
+├── package.json
+└── README.md
 ```
 
-## Tecnologie usate
+## Build e ottimizzazione
 
-- **HTML5** - Struttura della pagina
-- **Tailwind CSS** (CDN) - Stili e layout
-- **Formspree** - Gestione form contatti
-- **Google Maps Embed** - Mappa interattiva
-- **GitHub Actions** - Deploy automatico
+Lo script `npm run build` esegue:
 
-## Supporto
+1. **Compila Tailwind CSS** - genera solo le classi effettivamente usate
+2. **Minifica CSS** - rimuove spazi e commenti
+3. **Minifica HTML** - comprime il markup
+4. **Minifica JavaScript** - comprime gli script inline
+5. **Genera output** - tutto in `./dist/index.html`
 
-Per modifiche o assistenza, contatta lo sviluppatore.
+Riduzione tipica: **~60-70%** della dimensione originale.
+
+## Pubblicazione su GitHub Pages
+
+Il progetto include una GitHub Action che:
+1. Installa le dipendenze
+2. Esegue il build
+3. Pubblica la cartella `dist/` su GitHub Pages
+
+### Setup
+
+1. Crea un repository su GitHub
+2. Pusha il codice:
+   ```bash
+   git remote add origin https://github.com/TUO-USERNAME/casa-del-travertino.git
+   git branch -M main
+   git push -u origin main
+   ```
+3. Vai in **Settings > Pages**
+4. In "Source" seleziona **"GitHub Actions"**
+
+Il sito sarà disponibile su:
+`https://TUO-USERNAME.github.io/casa-del-travertino/`
+
+## Configurazione Formspree
+
+1. Vai su [formspree.io](https://formspree.io) e crea un account
+2. Crea un nuovo form
+3. In `src/index.html`, sostituisci `YOUR_FORM_ID` con il tuo ID
+
+## Personalizzazioni
+
+In `src/index.html` modifica:
+
+- **Email**: `info@casadeltravertino.it`
+- **Telefono**: `+39 333 123 4567`
+- **CIR**: `[Codice Identificativo Regionale]`
+- **Link Airbnb/Booking**: cerca `href="#"` e inserisci i tuoi URL
+- **Immagini**: sostituisci i `placekitten.com` con le tue foto in `src/images/`
+
+## Tecnologie
+
+- HTML5
+- Tailwind CSS
+- PostCSS + Autoprefixer
+- html-minifier-terser
+- clean-css
+- GitHub Actions

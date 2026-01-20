@@ -1,0 +1,17 @@
+{
+  "name": "casa-del-travertino",
+  "version": "1.0.0",
+  "description": "B&B Casa del Travertino - Ascoli Piceno",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "npx serve src",
+    "preview": "npx serve dist"
+  },
+  "devDependencies": {
+    "html-minifier-terser": "^7.2.0",
+    "tailwindcss": "^3.4.0",
+    "postcss": "^8.4.32",
+    "autoprefixer": "^10.4.16",
+    "clean-css": "^5.3.3"
+  }
+}
