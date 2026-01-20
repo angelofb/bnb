@@ -633,7 +633,7 @@
                 </div>
             </div>
             <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-white/40">
-                <p>&copy; 2024 Casa del Travertino. Tutti i diritti riservati.</p>
+                <p>&copy; <span id="year"></span> Casa del Travertino. Tutti i diritti riservati.</p>
                 <p class="mt-2 md:mt-0">CIR: [Codice Identificativo Regionale]</p>
             </div>
         </div>
@@ -681,6 +681,9 @@
             });
         }, observerOptions);
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
