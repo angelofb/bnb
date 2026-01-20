@@ -5,9 +5,97 @@ const tailwindcss = require('tailwindcss');
 const autoprefixer = require('autoprefixer');
 const CleanCSS = require('clean-css');
 const htmlMinifier = require('html-minifier-terser');
+const sharp = require('sharp');
 
 const SRC_DIR = './src';
 const DIST_DIR = './dist';
+
+// Image optimization settings
+const IMAGE_CONFIG = {
+    jpeg: { quality: 80, mozjpeg: true },
+    webp: { quality: 80 },
+    maxWidth: 1920,  // Max width for large images
+    thumbWidth: 800  // Width for smaller images
+};
+
+async function optimizeImages() {
+    const imagesDir = path.join(SRC_DIR, 'images');
+    const outputDir = path.join(DIST_DIR, 'images');
+
+    if (!fs.existsSync(imagesDir)) {
+        return { original: 0, optimized: 0, saved: 0 };
+    }
+
+    fs.mkdirSync(outputDir, { recursive: true });
+
+    const files = fs.readdirSync(imagesDir).filter(f =>
+        /\.(jpg|jpeg|png|webp)$/i.test(f)
+    );
+
+    let totalOriginal = 0;
+    let totalOptimized = 0;
+
+    for (const file of files) {
+        const inputPath = path.join(imagesDir, file);
+        const outputPath = path.join(outputDir, file.replace(/\.(jpg|jpeg|png)$/i, '.jpg'));
+        const webpPath = path.join(outputDir, file.replace(/\.(jpg|jpeg|png|webp)$/i, '.webp'));
+
+        const originalSize = fs.statSync(inputPath).size;
+        totalOriginal += originalSize;
+
+        try {
+            const image = sharp(inputPath);
+            const metadata = await image.metadata();
+
+            // Determine max width based on image purpose
+            const isLarge = metadata.width > 1200;
+            const maxWidth = isLarge ? IMAGE_CONFIG.maxWidth : IMAGE_CONFIG.thumbWidth;
+
+            // Resize if needed and optimize as JPEG
+            let pipeline = image.clone();
+            if (metadata.width > maxWidth) {
+                pipeline = pipeline.resize(maxWidth, null, {
+                    withoutEnlargement: true,
+                    fit: 'inside'
+                });
+            }
+
+            // Save optimized JPEG
+            await pipeline
+                .jpeg(IMAGE_CONFIG.jpeg)
+                .toFile(outputPath);
+
+            // Also create WebP version
+            pipeline = sharp(inputPath);
+            if (metadata.width > maxWidth) {
+                pipeline = pipeline.resize(maxWidth, null, {
+                    withoutEnlargement: true,
+                    fit: 'inside'
+                });
+            }
+            await pipeline
+                .webp(IMAGE_CONFIG.webp)
+                .toFile(webpPath);
+
+            const optimizedSize = fs.statSync(outputPath).size;
+            const webpSize = fs.statSync(webpPath).size;
+            totalOptimized += Math.min(optimizedSize, webpSize);
+
+        } catch (err) {
+            console.error(`  ⚠ Error processing ${file}:`, err.message);
+            // Copy original as fallback
+            fs.copyFileSync(inputPath, outputPath);
+            totalOptimized += originalSize;
+        }
+    }
+
+    return {
+        original: totalOriginal,
+        optimized: totalOptimized,
+        saved: totalOriginal - totalOptimized,
+        count: files.length
+    };
+}
 
 async function build() {
     console.log('🔨 Building Casa del Travertino...\n');
@@ -91,11 +179,11 @@ async function build() {
     // 10. Write output
     fs.writeFileSync(path.join(DIST_DIR, 'index.html'), finalHtml);
 
-    // 11. Copy other assets if they exist
-    const assetsDir = path.join(SRC_DIR, 'images');
-    if (fs.existsSync(assetsDir)) {
-        fs.cpSync(assetsDir, path.join(DIST_DIR, 'images'), { recursive: true });
-        console.log('✓ Copied images');
+    // 11. Optimize images
+    console.log('⏳ Optimizing images...');
+    const imageStats = await optimizeImages();
+    if (imageStats.count > 0) {
+        console.log(`✓ Optimized ${imageStats.count} images (saved ${(imageStats.saved / 1024).toFixed(0)} KB)`);
     }
 
     // 12. Copy CNAME if exists
@@ -108,13 +196,13 @@ async function build() {
     const srcSize = Buffer.byteLength(htmlSource, 'utf8');
     const distHtmlSize = Buffer.byteLength(finalHtml, 'utf8');
     const distCssSize = minifiedCss.styles.length;
-    const totalDistSize = distHtmlSize + distCssSize;
 
     console.log('\n📊 Build Stats:');
-    console.log(`   Source HTML: ${(srcSize / 1024).toFixed(1)} KB`);
-    console.log(`   Output HTML: ${(distHtmlSize / 1024).toFixed(1)} KB`);
-    console.log(`   Output CSS:  ${(distCssSize / 1024).toFixed(1)} KB`);
-    console.log(`   Total:       ${(totalDistSize / 1024).toFixed(1)} KB`);
+    console.log(`   HTML:   ${(srcSize / 1024).toFixed(1)} KB → ${(distHtmlSize / 1024).toFixed(1)} KB`);
+    console.log(`   CSS:    ${(distCssSize / 1024).toFixed(1)} KB (Tailwind purged)`);
+    if (imageStats.count > 0) {
+        console.log(`   Images: ${(imageStats.original / 1024).toFixed(0)} KB → ${(imageStats.optimized / 1024).toFixed(0)} KB (-${((imageStats.saved / imageStats.original) * 100).toFixed(0)}%)`);
+    }
     console.log(`\n✅ Build complete! Output in ./dist/`);
 }
 
