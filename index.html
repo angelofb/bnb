@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B&B Centro Storico Ascoli Piceno</title>
+    <meta name="description" content="Bed and Breakfast nel cuore del centro storico di Ascoli Piceno. 3 posti letto, posizione strategica per visitare la città.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B4513',
+                        secondary: '#D2691E',
+                        accent: '#F5DEB3',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#home" class="text-xl font-semibold text-primary">B&B Ascoli Centro</a>
+                <button id="menu-toggle" class="md:hidden p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+                <ul id="menu" class="hidden md:flex space-x-8">
+                    <li><a href="#home" class="hover:text-primary transition-colors">Home</a></li>
+                    <li><a href="#alloggio" class="hover:text-primary transition-colors">Alloggio</a></li>
+                    <li><a href="#servizi" class="hover:text-primary transition-colors">Servizi</a></li>
+                    <li><a href="#posizione" class="hover:text-primary transition-colors">Posizione</a></li>
+                    <li><a href="#contatti" class="hover:text-primary transition-colors">Contatti</a></li>
+                </ul>
+            </div>
+            <!-- Mobile menu -->
+            <ul id="mobile-menu" class="hidden flex-col space-y-4 mt-4 md:hidden">
+                <li><a href="#home" class="block hover:text-primary transition-colors">Home</a></li>
+                <li><a href="#alloggio" class="block hover:text-primary transition-colors">Alloggio</a></li>
+                <li><a href="#servizi" class="block hover:text-primary transition-colors">Servizi</a></li>
+                <li><a href="#posizione" class="block hover:text-primary transition-colors">Posizione</a></li>
+                <li><a href="#contatti" class="block hover:text-primary transition-colors">Contatti</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-16">
+        <div class="absolute inset-0 z-0">
+            <img src="https://placekitten.com/1920/1080" alt="Vista del B&B" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+        <div class="relative z-10 text-center text-white px-4 max-w-3xl">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">B&B Centro Storico</h1>
+            <p class="text-xl md:text-2xl mb-4">Ascoli Piceno</p>
+            <p class="text-lg md:text-xl mb-8 opacity-90">Nel cuore della città del travertino, a due passi da Piazza del Popolo</p>
+            <a href="#contatti" class="inline-block bg-primary hover:bg-secondary text-white font-semibold py-3 px-8 rounded-lg transition-colors">
+                Prenota Ora
+            </a>
+        </div>
+    </section>
+
+    <!-- Alloggio Section -->
+    <section id="alloggio" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-primary">Il Nostro Alloggio</h2>
+            <p class="text-center text-stone-600 mb-12 max-w-2xl mx-auto">
+                Un accogliente appartamento nel cuore del centro storico di Ascoli Piceno, perfetto per coppie o piccoli gruppi.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="space-y-4">
+                    <img src="https://placekitten.com/800/600" alt="Camera matrimoniale" class="w-full h-64 object-cover rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold">Camera Matrimoniale</h3>
+                    <p class="text-stone-600">Spaziosa camera con letto matrimoniale, perfetta per il vostro soggiorno romantico ad Ascoli Piceno.</p>
+                </div>
+                <div class="space-y-4">
+                    <img src="https://placekitten.com/801/600" alt="Divano letto" class="w-full h-64 object-cover rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold">Divano Letto</h3>
+                    <p class="text-stone-600">Comodo divano letto per un ospite aggiuntivo, ideale per famiglie o gruppi di amici.</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <img src="https://placekitten.com/400/300" alt="Soggiorno" class="w-full h-48 object-cover rounded-lg shadow-md">
+                <img src="https://placekitten.com/401/300" alt="Cucina" class="w-full h-48 object-cover rounded-lg shadow-md">
+                <img src="https://placekitten.com/402/300" alt="Bagno" class="w-full h-48 object-cover rounded-lg shadow-md">
+            </div>
+
+            <!-- Info Cards -->
+            <div class="grid md:grid-cols-3 gap-6 mt-12">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="text-4xl mb-4">🛏️</div>
+                    <h3 class="font-semibold mb-2">3 Posti Letto</h3>
+                    <p class="text-stone-600 text-sm">1 camera matrimoniale + 1 divano letto</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="text-4xl mb-4">🏛️</div>
+                    <h3 class="font-semibold mb-2">Centro Storico</h3>
+                    <p class="text-stone-600 text-sm">Posizione privilegiata nel cuore della città</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="text-4xl mb-4">🚶</div>
+                    <h3 class="font-semibold mb-2">Primo Piano</h3>
+                    <p class="text-stone-600 text-sm">Accessibile tramite scale (no ascensore)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servizi Section -->
+    <section id="servizi" class="py-20 px-4 bg-stone-100">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-primary">Servizi</h2>
+            <p class="text-center text-stone-600 mb-12 max-w-2xl mx-auto">
+                Tutto il necessario per un soggiorno confortevole
+            </p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-3xl mb-3">📶</div>
+                    <h3 class="font-semibold mb-2">Wi-Fi Gratuito</h3>
+                    <p class="text-stone-600 text-sm">Connessione veloce in tutto l'appartamento</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-3xl mb-3">🍳</div>
+                    <h3 class="font-semibold mb-2">Cucina Attrezzata</h3>
+                    <p class="text-stone-600 text-sm">Angolo cottura con tutto l'occorrente</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-3xl mb-3">❄️</div>
+                    <h3 class="font-semibold mb-2">Aria Condizionata</h3>
+                    <p class="text-stone-600 text-sm">Climatizzazione in tutti gli ambienti</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-3xl mb-3">🧺</div>
+                    <h3 class="font-semibold mb-2">Biancheria Inclusa</h3>
+                    <p class="text-stone-600 text-sm">Lenzuola e asciugamani forniti</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-3xl mb-3">📺</div>
+                    <h3 class="font-semibold mb-2">Smart TV</h3>
+                    <p class="text-stone-600 text-sm">TV con accesso a streaming</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-3xl mb-3">🧴</div>
+                    <h3 class="font-semibold mb-2">Set Cortesia</h3>
+                    <p class="text-stone-600 text-sm">Prodotti da bagno di qualità</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-3xl mb-3">☕</div>
+                    <h3 class="font-semibold mb-2">Caffè e Tè</h3>
+                    <p class="text-stone-600 text-sm">Kit di benvenuto con bevande calde</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-3xl mb-3">🔑</div>
+                    <h3 class="font-semibold mb-2">Self Check-in</h3>
+                    <p class="text-stone-600 text-sm">Arrivo autonomo con cassetta di sicurezza</p>
+                </div>
+            </div>
+
+            <!-- Note importanti -->
+            <div class="mt-12 bg-amber-50 border border-amber-200 rounded-lg p-6">
+                <h3 class="font-semibold text-amber-800 mb-3">📌 Informazioni Importanti</h3>
+                <ul class="text-amber-700 space-y-2 text-sm">
+                    <li>• <strong>Parcheggio:</strong> Non disponibile presso la struttura. Parcheggi pubblici nelle vicinanze (a pagamento)</li>
+                    <li>• <strong>Accesso:</strong> Primo piano senza ascensore - circa 20 gradini</li>
+                    <li>• <strong>Check-in:</strong> dalle 15:00 | <strong>Check-out:</strong> entro le 10:00</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Posizione Section -->
+    <section id="posizione" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-primary">Posizione</h2>
+            <p class="text-center text-stone-600 mb-12 max-w-2xl mx-auto">
+                Nel cuore del centro storico di Ascoli Piceno, una delle piazze più belle d'Italia
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <img src="https://placekitten.com/600/400" alt="Piazza del Popolo" class="w-full rounded-lg shadow-md mb-6">
+                    <h3 class="text-xl font-semibold mb-4">A due passi da tutto</h3>
+                    <ul class="space-y-3 text-stone-600">
+                        <li class="flex items-start">
+                            <span class="mr-3">🏛️</span>
+                            <span><strong>Piazza del Popolo:</strong> 2 minuti a piedi</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3">⛪</span>
+                            <span><strong>Duomo di Ascoli:</strong> 5 minuti a piedi</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3">🏰</span>
+                            <span><strong>Forte Malatesta:</strong> 10 minuti a piedi</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3">🍕</span>
+                            <span><strong>Ristoranti e bar:</strong> ovunque intorno a te!</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3">🚌</span>
+                            <span><strong>Stazione autobus:</strong> 10 minuti a piedi</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <!-- Mappa Google Maps Embed -->
+                    <div class="rounded-lg overflow-hidden shadow-md">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2892.5669847655467!2d13.57489!3d42.85389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132e341e3c77f7e7%3A0x9d9d72a8f3e8eb89!2sPiazza%20del%20Popolo%2C%2063100%20Ascoli%20Piceno%20AP!5e0!3m2!1sit!2sit!4v1699000000000!5m2!1sit!2sit"
+                            width="100%"
+                            height="400"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cosa vedere -->
+            <div class="mt-16">
+                <h3 class="text-2xl font-semibold text-center mb-8">Cosa vedere ad Ascoli Piceno</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                        <img src="https://placekitten.com/403/250" alt="Piazza del Popolo" class="w-full h-40 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-semibold mb-2">Piazza del Popolo</h4>
+                            <p class="text-stone-600 text-sm">Una delle piazze rinascimentali più belle d'Italia, con il famoso Caffè Meletti.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                        <img src="https://placekitten.com/404/250" alt="Cattedrale di Sant'Emidio" class="w-full h-40 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-semibold mb-2">Cattedrale di Sant'Emidio</h4>
+                            <p class="text-stone-600 text-sm">Il magnifico Duomo dedicato al patrono della città.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                        <img src="https://placekitten.com/405/250" alt="Olive Ascolane" class="w-full h-40 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-semibold mb-2">Tradizione Culinaria</h4>
+                            <p class="text-stone-600 text-sm">Assaggia le famose olive all'ascolana e i vincisgrassi!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contatti Section -->
+    <section id="contatti" class="py-20 px-4 bg-stone-100">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-primary">Contattaci</h2>
+            <p class="text-center text-stone-600 mb-12">
+                Hai domande o vuoi prenotare? Scrivici e ti risponderemo al più presto!
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Contact Form con Formspree -->
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-6">Richiedi Informazioni</h3>
+                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium mb-1">Nome *</label>
+                            <input type="text" id="name" name="name" required
+                                class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium mb-1">Email *</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium mb-1">Telefono</label>
+                            <input type="tel" id="phone" name="phone"
+                                class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="checkin" class="block text-sm font-medium mb-1">Check-in</label>
+                                <input type="date" id="checkin" name="checkin"
+                                    class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none">
+                            </div>
+                            <div>
+                                <label for="checkout" class="block text-sm font-medium mb-1">Check-out</label>
+                                <input type="date" id="checkout" name="checkout"
+                                    class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="guests" class="block text-sm font-medium mb-1">Numero Ospiti</label>
+                            <select id="guests" name="guests"
+                                class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none">
+                                <option value="1">1 ospite</option>
+                                <option value="2" selected>2 ospiti</option>
+                                <option value="3">3 ospiti</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium mb-1">Messaggio</label>
+                            <textarea id="message" name="message" rows="4"
+                                class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
+                                placeholder="Scrivi qui le tue domande o richieste..."></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-primary hover:bg-secondary text-white font-semibold py-3 px-6 rounded-lg transition-colors">
+                            Invia Richiesta
+                        </button>
+                    </form>
+                    <p class="text-xs text-stone-500 mt-4">
+                        * Campi obbligatori. I tuoi dati saranno trattati nel rispetto della privacy.
+                    </p>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="space-y-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold mb-4">Contatti Diretti</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-4">📧</span>
+                                <div>
+                                    <p class="font-medium">Email</p>
+                                    <a href="mailto:info@bnbascolipiceno.it" class="text-primary hover:underline">info@bnbascolipiceno.it</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-4">📱</span>
+                                <div>
+                                    <p class="font-medium">Telefono / WhatsApp</p>
+                                    <a href="tel:+393331234567" class="text-primary hover:underline">+39 333 123 4567</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-4">📍</span>
+                                <div>
+                                    <p class="font-medium">Indirizzo</p>
+                                    <p class="text-stone-600">Centro Storico<br>63100 Ascoli Piceno (AP)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold mb-4">Prenota anche su</h3>
+                        <div class="space-y-3">
+                            <a href="#" class="flex items-center p-3 border border-stone-200 rounded-lg hover:bg-stone-50 transition-colors">
+                                <span class="text-2xl mr-3">🏠</span>
+                                <span>Airbnb</span>
+                            </a>
+                            <a href="#" class="flex items-center p-3 border border-stone-200 rounded-lg hover:bg-stone-50 transition-colors">
+                                <span class="text-2xl mr-3">🅱️</span>
+                                <span>Booking.com</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-primary/10 p-6 rounded-lg">
+                        <h3 class="font-semibold mb-2">💡 Suggerimento</h3>
+                        <p class="text-sm text-stone-700">Prenotando direttamente con noi potresti ottenere condizioni migliori rispetto alle piattaforme online!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-800 text-white py-12 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">B&B Centro Storico</h3>
+                    <p class="text-stone-400">Il tuo punto di partenza ideale per scoprire le bellezze di Ascoli Piceno.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">Link Rapidi</h3>
+                    <ul class="space-y-2 text-stone-400">
+                        <li><a href="#home" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#alloggio" class="hover:text-white transition-colors">Alloggio</a></li>
+                        <li><a href="#servizi" class="hover:text-white transition-colors">Servizi</a></li>
+                        <li><a href="#contatti" class="hover:text-white transition-colors">Contatti</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">Seguici</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-stone-400 hover:text-white transition-colors text-2xl">📘</a>
+                        <a href="#" class="text-stone-400 hover:text-white transition-colors text-2xl">📸</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-stone-700 pt-8 text-center text-stone-400 text-sm">
+                <p>&copy; 2024 B&B Centro Storico Ascoli Piceno. Tutti i diritti riservati.</p>
+                <p class="mt-2">CIR: [Inserire Codice Identificativo Regionale]</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+            });
+        });
+    </script>
+</body>
+</html>
